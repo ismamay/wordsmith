@@ -1,0 +1,13 @@
+services:
+  db:
+    build: ./db
+  words:
+    build: ./words
+    depends_on:
+      - db
+  web:
+    build: ./web
+    depends_on:
+      - words
+    ports:
+      - "8080:80"
